@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from 'src/app/models/product';
+import { IProduct, ProductCart } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 import { ActivatedRoute } from '@angular/router';
+import { LocalstorageService } from './../../services/localstorage.service';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -14,14 +17,18 @@ export class ProductDetailComponent implements OnInit {
   constructor(
     private router: ActivatedRoute,
     private productService: ProductService,
-    // private lsService: LocalStorageService
+    private lsService: LocalstorageService,
+    private toastr: ToastrService
   ) {
     this.id = "";
     this.product = {
       _id: '',
       name: "",
       price: 0,
-      description: ''
+      description: '',
+      sale_price: 0,
+      quantity: 0,
+      status: 0,
     }
     this.cartValue = 1;
   }
@@ -37,19 +44,17 @@ export class ProductDetailComponent implements OnInit {
     this.cartValue = event.target.value;
   }
 
-  // onAddToCart() {
-  //   // Định nghĩa 1 sp trong giỏ hàng có cấu trúc là gì
-  //   const addItem = {
-  //     ...this.product,
-  //     value: +this.cartValue
-  //   };
-  //   // Nếu thực hiện như cũ, thì phía component cart sẽ không lắng nghe được
+  onAddToCart() {
 
-  //   // Thực hiện gọi lsService để component cart có thể lắng nghe thay đổi
-  //   this.lsService.setItem(addItem);
-  //   this.cartValue = 1;
+    const addItem = {
+      ...this.product,
+      value: +this.cartValue
+    };
+    this.lsService.setItem(addItem);
+    this.cartValue = 1;
 
-  // }
+
+  }
 
 
 }

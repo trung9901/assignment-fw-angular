@@ -1,0 +1,137 @@
+.title-head {
+    color: #494949
+}
+
+.product-price {
+    color: #9c8350
+}
+
+.add_to_cart {
+    align-items: flex-start;
+    background-color: #494949;
+    border-color: #494949;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    color: #ffffff;
+    font-family: roboto;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 22.5px;
+    padding: 8px 14px;
+    text-align: center
+}
+
+.btn-buy-now {
+    align-items: flex-start;
+    background-color: #9c8350;
+    border-color: #9c8350;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    color: #ffffff;
+    font-family: roboto;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 22.5px;
+    margin: 0px 0px 0px 10px;
+    padding: 8px 14px;
+    text-align: center
+}
+
+.service_product {
+    border-color: #9c8350;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 15px;
+    line-height: 25.5px;
+    padding: 20px 10px
+}
+
+.item {
+    display: flex;
+    font-size: 15px;
+    line-height: 25.5px;
+    margin: 0px 0px 20px
+}
+
+.info p {
+    color: #8e8c8c;
+    font-family: roboto;
+    font-size: 12px;
+    line-height: 20.4px
+}
+
+.info h3 {
+    color: #494949;
+    font-family: roboto;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.14px;
+    line-height: 19.6px;
+    text-transform: uppercase
+}
+
+.content {
+    color: #5b5b5e;
+    font-family: roboto;
+    font-size: 14px;
+    line-height: 23.8px;
+    margin: 0px 0px 10px;
+    padding: 0px 0px 0px 30px
+}
+
+.title {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 25.5px;
+    margin: 0px 0px 10px
+}
+
+.related-offers {
+    font-size: 15px;
+    line-height: 25.5px;
+    margin: 20px 0px 0px
+}
+
+.content p i {
+    color: #5b5b5e;
+    display: inline;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 23.8px
+}
+
+.nd-product-tab {
+    font-size: 15px;
+    line-height: 25.5px;
+    margin: 40px 0px 0px
+}
+
+.tab-content p {
+    color: #121314;
+    font-family: roboto;
+    font-size: 15px;
+    line-height: 25.5px;
+    margin: 0px 0px 10px
+}
+
+#home-tab {
+    background-color: #ffffff;
+    background-position: 0px 0px;
+    color: #5b5b5e;
+    font-family: roboto;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 40.8px;
+    margin: 0px 0px -1px;
+    text-align: left;
+    text-transform: uppercase
+}
+
+.cart-value {
+    width: 20%;
+    border-radius: 8px;
+    border: 1px solid black
+}

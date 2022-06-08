@@ -2,14 +2,16 @@
     <!-- loop product -->
     <div class="col mb-4" *ngFor="let product of products">
         <div class="card" style="width: 18rem;">
-            <a href="" routerLink="/products/{{product._id}}"> <img src="https://picsum.photos/200/200" class="card-img-top" alt="..."></a>
+            <a href="" routerLink="/detail/{{product._id}}"> <img src="https://picsum.photos/200/200" class="card-img-top" alt="..."></a>
             <div class="card-body">
-                <a href="" routerLink="/products/{{product._id}}">
+                <a href="" routerLink="/detail/{{product._id}}">
                     <h5 class="card-title fw-bold">{{ product.name }} </h5>
                 </a>
                 <p class="card-text">{{ product.description }}</p>
-                <p class="card-">Giá: <span>{{ product.price }} ₫</span></p>
-                <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                <p class="card- d-flex justify-content-around"> <span>Giá: {{ product.price }} ₫</span> <span *ngIf="product.status == 1">Trạng
+                        thái :<small class="text-success fw-bold">Còn hàng</small> </span><span *ngIf="product.status != 1">Trạng
+                        thái : <small class="text-danger fw-bold">hết hàng</small> </span></p>
+
             </div>
         </div>
     </div>

@@ -21,6 +21,9 @@ import { FormsModule } from '@angular/forms';
 import { SigninComponent } from './pages/signin/signin.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -37,14 +40,19 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
     AddComponent,
     SigninComponent,
     SignupComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+
   ],
   providers: [],
   bootstrap: [AppComponent]
