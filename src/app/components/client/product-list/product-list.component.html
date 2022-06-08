@@ -1,16 +1,29 @@
-<div class="row ">
+<div class="row row-cols-3">
     <!-- loop product -->
-    <div class="col mb-4">
+    <div class="col mb-4" *ngFor="let product of products">
         <div class="card" style="width: 18rem;">
-            <img src="https://picsum.photos/200/200" class="card-img-top" alt="...">
+            <a href="" routerLink="/products/{{product._id}}"> <img src="https://picsum.photos/200/200" class="card-img-top" alt="..."></a>
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <p class="card-">Price: <span>asdasf</span></p>
+                <a href="" routerLink="/products/{{product._id}}">
+                    <h5 class="card-title fw-bold">{{ product.name }} </h5>
+                </a>
+                <p class="card-text">{{ product.description }}</p>
+                <p class="card-">Giá: <span>{{ product.price }} ₫</span></p>
                 <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
             </div>
         </div>
     </div>
+    <!-- <div class="col mb-4">
+        <div class="card" style="width: 18rem;">
+            <img src="https://picsum.photos/200/200" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"> </h5>
+                <p class="card-text"></p>
+                <p class="card-">Price: <span></span></p>
+                <a href="#" class="btn btn-primary">Thêm vào giỏ hàng</a>
+            </div>
+        </div>
+    </div> -->
 
     <!-- loop product -->
 

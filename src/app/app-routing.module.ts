@@ -20,8 +20,12 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'about', component: AboutComponent },
-      { path: 'products', component: ProductComponent },
-      { path: 'products-detail', component: ProductDetailComponent },
+      {
+        path: 'products', component: ProductComponent,
+        children: [
+          { path: ':id', component: ProductDetailComponent, }
+        ]
+      }
     ]
   },
 
@@ -46,8 +50,16 @@ const routes: Routes = [
         ]
       }
     ]
-  }
-
+  },
+  // {
+  //   path: 'auth',
+  //   children: [
+  //     {
+  //       path: 'login',
+  //       component: 
+  //     }
+  //   ]
+  // }
 ];
 
 @NgModule({

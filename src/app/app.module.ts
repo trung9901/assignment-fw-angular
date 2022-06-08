@@ -16,6 +16,11 @@ import { ClientLayoutsComponent } from './layouts/client-layouts/client-layouts.
 import { AddComponent } from './components/admin/product/add/add.component';
 import { ProductListComponent } from './components/client/product-list/product-list.component';
 import { ListComponent } from './components/admin/product/list/list.component';
+import { HttpClientModule } from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
+import { SigninComponent } from './pages/signin/signin.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -26,15 +31,19 @@ import { ListComponent } from './components/admin/product/list/list.component';
     HomeComponent,
     ProductComponent,
     AdminLayoutsComponent,
-
     FooterComponent,
     ClientLayoutsComponent,
     ListComponent,
-    AddComponent
+    AddComponent,
+    SigninComponent,
+    SignupComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
     NgbModule
   ],
   providers: [],
