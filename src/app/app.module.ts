@@ -13,9 +13,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './components/footer/footer.component';
 import { ClientLayoutsComponent } from './layouts/client-layouts/client-layouts.component';
 
-import { AddComponent } from './components/admin/product/add/add.component';
+
 import { ProductListComponent } from './components/client/product-list/product-list.component';
-import { ListComponent } from './components/admin/product/list/list.component';
+
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SigninComponent } from './pages/signin/signin.component';
@@ -24,6 +24,9 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CartComponent } from './pages/cart/cart.component';
+import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
+import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 
 
 @NgModule({
@@ -37,11 +40,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AdminLayoutsComponent,
     FooterComponent,
     ClientLayoutsComponent,
-    ListComponent,
-    AddComponent,
+
     SigninComponent,
     SignupComponent,
     ProductDetailComponent,
+    CartComponent,
+    AdminProductListComponent,
+    AdminProductFormComponent,
 
 
   ],

@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddComponent } from './components/admin/product/add/add.component';
 
-import { ListComponent } from './components/admin/product/list/list.component';
 import { CanAccessAdminGuard } from './guards/can-access-admin.guard';
 
 
@@ -10,6 +8,9 @@ import { AdminLayoutsComponent } from './layouts/admin-layouts/admin-layouts.com
 import { ClientLayoutsComponent } from './layouts/client-layouts/client-layouts.component';
 
 import { AboutComponent } from './pages/about/about.component';
+import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
+import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
+import { CartComponent } from './pages/cart/cart.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { ProductComponent } from './pages/product/product.component';
@@ -31,7 +32,8 @@ const routes: Routes = [
       },
       { path: 'detail/:id', component: ProductDetailComponent },
       { path: 'signin', component: SigninComponent },
-      { path: 'signup', component: SignupComponent }
+      { path: 'signup', component: SignupComponent },
+      { path: 'cart', component: CartComponent }
     ]
   },
 
@@ -45,13 +47,13 @@ const routes: Routes = [
         children: [
           { path: "", redirectTo: 'list', pathMatch: 'full' },
           {
-            path: 'list', component: ListComponent,
+            path: 'list', component: AdminProductListComponent,
           },
           {
-            path: 'add', component: AddComponent,
+            path: 'add', component: AdminProductFormComponent,
           },
           {
-            path: 'edit/:id', component: AddComponent,
+            path: 'edit/:id', component: AdminProductFormComponent,
           },
 
         ]

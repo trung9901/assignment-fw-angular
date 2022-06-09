@@ -14,4 +14,5 @@ export type ProductCart = {
     name: string,
     price: number,
     value: number,
+    image?: string
 }

@@ -1,0 +1,54 @@
+<div class="container my-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col"> </th>
+                            <th scope="col">Sản phẩm</th>
+
+                            <th scope="col" class="text-center">Số lượng</th>
+                            <th></th>
+                            <th scope="col" class="text-right">Đơn giá</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let cart of cartItems">
+                            <td><img src="{{cart.image}}" width="50" height="50" /> </td>
+                            <td>{{cart.name}}</td>
+
+                            <td class=" "><input class="p-2" type="number" value="{{cart.value}}" />
+                            </td>
+                            <td><small class="btn btn-outline-primary" (click)="onUpdateToCart()">↻</small></td>
+                            <td class="text-right">{{cart.price}} ₫</td>
+                            <td class="text-right"><button class="btn  btn-danger">Xoá
+                                </button> </td>
+                        </tr>
+
+
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><strong>Tổng tiền</strong></td>
+                            <td class="text-right"><strong>{{totalPrice() }} ₫</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col mb-2">
+            <div class="d-flex justify-content-between px-5">
+                <div class="">
+                    <button class="btn btn-block btn-light" routerLink="/products">Tiếp tục mua hàng</button>
+                </div>
+                <div class=" text-right">
+                    <button class="btn btn-lg btn-block  text-uppercase checkout">Thanh toán</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

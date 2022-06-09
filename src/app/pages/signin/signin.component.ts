@@ -28,7 +28,7 @@ export class SigninComponent implements OnInit {
       // 2. Lưu thông tin user vào localStorage: setItem(tên key lưu vào ls, dữ liệu string)
       localStorage.setItem('loggedInUser', JSON.stringify(data));
       // localStorage.getItem('loggedInUser');
-      // 3. di chuyển về màn admin/products
+      //
       this.router.navigateByUrl('/');
     });
   }
