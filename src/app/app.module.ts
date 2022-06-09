@@ -17,7 +17,7 @@ import { AddComponent } from './components/admin/product/add/add.component';
 import { ProductListComponent } from './components/client/product-list/product-list.component';
 import { ListComponent } from './components/admin/product/list/list.component';
 import { HttpClientModule } from '@angular/common/http'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SigninComponent } from './pages/signin/signin.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
@@ -52,7 +52,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

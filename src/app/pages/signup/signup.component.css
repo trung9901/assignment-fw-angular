@@ -1,0 +1,43 @@
+.justify-content-md-center {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 15px;
+    justify-content: center;
+    line-height: 25.5px;
+    margin: 0px -10px
+}
+
+.order-first {
+    font-size: 15px;
+    line-height: 25.5px;
+    padding: 0px 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.active a {
+    align-items: center;
+    color: #303846;
+    display: flex;
+    font-family: roboto;
+    font-size: 15px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 22px;
+    text-align: center
+}
+
+.active2 a {
+    align-items: center;
+    color: #999999;
+    display: flex;
+    font-family: roboto;
+    font-size: 15px;
+    justify-content: center;
+    line-height: 22px;
+    text-align: center
+}
+
+.auth-block__menu-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

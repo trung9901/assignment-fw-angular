@@ -12,6 +12,8 @@ import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { ProductComponent } from './pages/product/product.component';
+import { SigninComponent } from './pages/signin/signin.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 
 const routes: Routes = [
@@ -26,7 +28,9 @@ const routes: Routes = [
         //   { path: ':id', component: ProductDetailComponent, }
         // ]
       },
-      { path: 'detail/:id', component: ProductDetailComponent }
+      { path: 'detail/:id', component: ProductDetailComponent },
+      { path: 'signin', component: SigninComponent },
+      { path: 'signup', component: SignupComponent }
     ]
   },
 
