@@ -37,18 +37,20 @@
                                         <p class="font-weight-bold mb-0">{{product.name}}</p>
                                     </td>
                                     <td>
-                                        <p class="font-weight-bold mb-0">{{product.price}}</p>
+                                        <p class=" mb-0">{{product.price}} ₫</p>
                                     </td>
 
                                     <td>
-                                        <img src="{{product.image}} " alt="">
+                                        <img src="{{product.image}} " alt="" width="50" height="50">
                                     </td>
                                     <td class="align-middle text-center text-sm">
-                                        <span class="badge badge-sm bg-gradient-success">{{ product.status ? "Còn hàng"
-                                            : "hết hàng" }}</span>
+                                        <span class="badge badge-sm bg-gradient-secondary" *ngIf="!product.status">Hết
+                                            hàng</span>
+                                        <span class="badge badge-sm bg-gradient-success" *ngIf="product.status">Còn
+                                            hàng</span>
                                     </td>
                                     <td class="align-middle text-center">
-                                        <span class="">23/04/18</span>
+                                        <span class="">null</span>
                                     </td>
                                     <td class="align-middle">
                                         <button class="btn btn-danger" (click)="onHandleRemove(product._id!)">
