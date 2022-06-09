@@ -25,8 +25,11 @@ import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartComponent } from './pages/cart/cart.component';
-import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
+
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
+import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
+import { ShowValidateComponent } from './components/show-validate/show-validate.component';
+
 
 
 @NgModule({
@@ -47,6 +50,8 @@ import { AdminProductFormComponent } from './pages/admin/admin-product/admin-pro
     CartComponent,
     AdminProductListComponent,
     AdminProductFormComponent,
+    ShowValidateComponent,
+
 
 
   ],

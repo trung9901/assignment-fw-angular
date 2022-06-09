@@ -1,1 +1,72 @@
-<p>admin-product-list works!</p>
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>Danh sách sản phẩm</h6>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        #</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
+                                        Name</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Price</th>
+
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Image</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Status</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Category</th>
+                                    <th class="text-secondary opacity-7"><button class="btn btn-primary" routerLink="/admin/products/add">+ Thêm
+                                            mới sản
+                                            phẩm</button></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let product of products; let i = index">
+                                    <td>
+                                        <p class=" ">{{i+1}}</p>
+                                    </td>
+                                    <td>
+                                        <p class="font-weight-bold mb-0">{{product.name}}</p>
+                                    </td>
+                                    <td>
+                                        <p class="font-weight-bold mb-0">{{product.price}}</p>
+                                    </td>
+
+                                    <td>
+                                        <img src="{{product.image}} " alt="">
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="badge badge-sm bg-gradient-success">{{ product.status ? "Còn hàng"
+                                            : "hết hàng" }}</span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <span class="">23/04/18</span>
+                                    </td>
+                                    <td class="align-middle">
+                                        <button class="btn btn-danger" (click)="onHandleRemove(product._id!)">
+                                            Delete
+                                        </button>
+                                        <button class="btn btn-info mx-1" routerLink="/admin/products/edit/{{product._id!}}">
+                                            Edit
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

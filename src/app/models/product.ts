@@ -5,8 +5,9 @@ export interface IProduct {
     description?: string,
     sale_price: number,
     quantity: number,
-    status: number,
-    // category?:
+    status: number | string,
+    image?: string,
+    category?: string,
 }
 
 export type ProductCart = {

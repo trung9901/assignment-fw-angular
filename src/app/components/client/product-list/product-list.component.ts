@@ -19,7 +19,7 @@ export class ProductListComponent implements OnInit {
   getProductList() {
     this.productService.getProductList().subscribe(data => {
       this.products = data;
-      console.log(this.products)
+
     })
   }
   onHandleRemove(id: string) {
