@@ -14,7 +14,7 @@
                                 <a routerLink="/signup" title="Đăng ký">Đăng ký</a>
                             </li>
                         </ul>
-                        <form (ngSubmit)="onSubmit()" #formSignIn="ngForm" class="has-validation-callback">
+                        <form (ngSubmit)="onSubmit()" [formGroup]="signupForm" class="has-validation-callback">
                             <input name="FormType" type="hidden" value="customer_register">
                             <input name="utf8" type="hidden" value="true"><input type="hidden" id="Token-ebc4c2cba8124ee692d0c0b65954e6ce" name="Token" value="03AGdBq26Avvr2idSfyaqVNuxZ17rP5QQE09d0plv0JHmufMdlVshkhZ33C0dCj2wUscf1DP9ziKGPnaXWl8-WREn2UtnrRbn3cHiJPqg-Pwp8rNNs492eIoeVw5qrFzmD1q8iRkEiUifAczDBt9dmJQlRfXdIbOA9VKpBPJoX-uAC_fsr4gPjacYKA2cFHlbp7-Psgyw0pZtbV5zpBxb07QJwbmn-Tlw6-iWREV0UJMXC3VRzMiJPvOQi15TX-keHwZYWfN0_TSMCPl7KubZYXcwuSVXttlFC1rOMIb3cZTfL4QKDoWotizXOv-80XiudvwJMLc7230Wh3Cj-xH0L4KVrEriFkpSSDQRQILIlyHwtX3vGcMH5fOo0DPTsMiNNrDH2IjYLYETbuIuv1BTCVHJKJKgY8x4uaD5KzIwSgHTc_ELCUXHAsJc1jBgGRdVberWO3k3iVTesNQLDYkw2C4u5Df65oE32-3DIGYKN6ByPfsab74PkwRI">
 
@@ -27,7 +27,7 @@
                                     <div class="col-md-12">
                                         <fieldset class="form-group">
                                             <label>Tên<span class="required">*</span></label>
-                                            <input placeholder="Nhập Tên" type="text" class="form-control form-control-lg" value="" name="firstName">
+                                            <input placeholder="Nhập Tên" type="text" class="form-control form-control-lg" formControlName="name">
                                         </fieldset>
                                     </div>
                                     <!-- <div class="col-md-12">
@@ -39,13 +39,13 @@
                                     <div class="col-md-12">
                                         <fieldset class="form-group">
                                             <label>Email<span class="required">*</span></label>
-                                            <input placeholder="Nhập Địa chỉ Email" type="email" class="form-control form-control-lg" data-validation="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" data-validation-error-msg="Email sai định dạng" value="" name="email" id="email" required="">
+                                            <input placeholder="Nhập Địa chỉ Email" type="email" class="form-control form-control-lg" formControlName="email">
                                         </fieldset>
                                     </div>
                                     <div class="col-md-12">
                                         <fieldset class="form-group">
                                             <label>Mật khẩu<span class="required">*</span></label>
-                                            <input placeholder="Nhập Mật khẩu" type="password" class="form-control form-control-lg" value="" name="password" id="password" required="" data-validation-error-msg="Không được để trống" data-validation="required">
+                                            <input placeholder="Nhập Mật khẩu" type="password" class="form-control form-control-lg" formControlName="password">
                                         </fieldset>
                                     </div>
 

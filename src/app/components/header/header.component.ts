@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductCart } from 'src/app/models/product';
+import { IUser } from 'src/app/models/user';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
 
 @Component({
@@ -8,18 +9,26 @@ import { LocalstorageService } from 'src/app/services/localstorage.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  cartItems: ProductCart[]
+
+  cartItems: ProductCart[];;
+  loggedInUser;
+
   constructor(private lsService: LocalstorageService) {
     this.cartItems = [];
+    this.loggedInUser = this.lsService.getUser()
+
   }
 
   ngOnInit(): void {
+
     this.onSetCart()
     this.lsService.watchStorage().subscribe(data => {
       this.onSetCart()
     })
+
   }
   onSetCart() {
     this.cartItems = this.lsService.getItem()
   }
+
 }

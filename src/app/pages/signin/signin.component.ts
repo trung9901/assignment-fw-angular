@@ -29,7 +29,7 @@ export class SigninComponent implements OnInit {
       localStorage.setItem('loggedInUser', JSON.stringify(data));
       // localStorage.getItem('loggedInUser');
       // 3. di chuyển về màn admin/products
-      this.router.navigateByUrl('/admin');
+      this.router.navigateByUrl('/');
     });
   }
 

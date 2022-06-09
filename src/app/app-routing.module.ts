@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddComponent } from './components/admin/product/add/add.component';
 
 import { ListComponent } from './components/admin/product/list/list.component';
+import { CanAccessAdminGuard } from './guards/can-access-admin.guard';
 
 
 import { AdminLayoutsComponent } from './layouts/admin-layouts/admin-layouts.component';
@@ -37,6 +38,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminLayoutsComponent,
+    canActivate: [CanAccessAdminGuard],
     children: [
       {
         path: 'products',

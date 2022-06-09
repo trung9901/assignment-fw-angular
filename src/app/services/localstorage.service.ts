@@ -27,8 +27,8 @@ export class LocalstorageService {
     }
     localStorage.setItem('cart', JSON.stringify(cardItems))
     this.storageSubject.next('')
-
-
-
+  }
+  getUser() {
+    return JSON.parse(localStorage.getItem('loggedInUser') || '[]');
   }
 }
