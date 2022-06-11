@@ -3,11 +3,12 @@ export interface IProduct {
     name: string,
     price: number,
     description?: string,
-    sale_price: number,
+    sale_price?: number,
     quantity: number,
     status: number | string,
     image?: string,
     category?: string,
+    createdAt?: string
 }
 
 export type ProductCart = {

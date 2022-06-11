@@ -3,7 +3,8 @@ import { IProduct, ProductCart } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { LocalstorageService } from './../../services/localstorage.service';
-import { ToastrService } from 'ngx-toastr';
+import { NgToastService } from 'ng-angular-popup';
+
 
 @Component({
   selector: 'app-product-detail',
@@ -18,7 +19,7 @@ export class ProductDetailComponent implements OnInit {
     private router: ActivatedRoute,
     private productService: ProductService,
     private lsService: LocalstorageService,
-    private toastr: ToastrService
+    private toast: NgToastService,
   ) {
     this.id = "";
     this.product = {
@@ -34,26 +35,34 @@ export class ProductDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.id = this.router.snapshot.params['id'];
-    this.productService.getProducts(this.id).subscribe((data) => {
-      this.product = data;
-    })
+    this.getProducts()
   }
 
   onChangeCartValue(event: any) {
     this.cartValue = event.target.value;
   }
-
+  getProducts() {
+    this.id = this.router.snapshot.params['id'];
+    this.productService.getProducts(this.id).subscribe((data) => {
+      this.product = data;
+    })
+  }
   onAddToCart() {
 
     const addItem = {
       ...this.product,
       value: +this.cartValue
     };
-    this.lsService.setItem(addItem);
+    // this.lsService.setItem(addItem);
     this.cartValue = 1;
-
-
+    // ------------------------
+    if (this.product.quantity < addItem.value) {
+      this.toast.error({ detail: 'Them that bai, san pham vuot qua so luong trong kho' })
+      console.log(this.product.quantity, addItem.value)
+    } else {
+      this.lsService.setItem(addItem);
+      this.toast.success({ detail: 'them vao gio hang thanh cong' })
+    }
   }
 
 

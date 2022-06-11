@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class AdminProductFormComponent implements OnInit {
   constructor(
     private productService: ProductService, // cung cấp createProduct
     private router: Router, // cung cấp navigate điều hướng
-    private activateRoute: ActivatedRoute // lấy ra các tham số trong url
+    private activateRoute: ActivatedRoute, // lấy ra các tham số trong url
+    private toast: NgToastService,
   ) {
     this.productForm = new FormGroup({
       // name: new FormControl('', Validators.required),
@@ -24,10 +26,10 @@ export class AdminProductFormComponent implements OnInit {
         Validators.maxLength(32),
         // this.onValidateNameHasProduct
       ]),
-      price: new FormControl(0, [
+      price: new FormControl('', [
         Validators.required
       ]),
-      quantity: new FormControl(0, [
+      quantity: new FormControl('', [
         Validators.required
       ]),
       image: new FormControl('', [
@@ -46,42 +48,40 @@ export class AdminProductFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productId = this.activateRoute.snapshot.params['_id'];
+    this.productId = this.activateRoute.snapshot.params['id'];
     if (this.productId) {
       this.productService.getProducts(this.productId).subscribe(data => {
         // Gán giá trị cho form, patchValue sẽ nhận đầy đủ thuộc tính của form
         this.productForm.patchValue({
-          name: data.name
+          name: data.name,
+          price: data.price,
+          quantity: data.quantity,
+          image: data.image,
+          description: data.description
         });
       });
+
     }
   }
 
 
-  // onValidateNameHasProduct(control: AbstractControl): ValidationErrors | null {
+  onValidateNameHasProduct(control: AbstractControl): ValidationErrors | null {
 
-  //   const { value } = control;
+    const { value } = control;
 
-  //   if (!value.includes('product')) {
-  //     return { hasProductError: true };
-  //   }
+    if (!value.includes('product')) {
+      return { hasProductError: true };
+    }
 
-  //   return null;
-  // }
+    return null;
+  }
 
   onSubmit() {
 
     const submitData = this.productForm.value;
 
-    // if (this.productId !== '0' || this.productId !== undefined) {
-    //   return this.productService.updateProduct(this.productId, submitData).subscribe(data => {
-    //     this.router.navigateByUrl('/admin/products');
-    //   });
-    // }
-
-    console.log(submitData)
     return this.productService.addProduct(submitData).subscribe((data) => {
-
+      this.toast.success({ detail: 'them san pham thanh cong' })
       this.router.navigateByUrl('/admin/products');
     })
 

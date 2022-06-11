@@ -23,6 +23,8 @@
                                         Status</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Category</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Date</th>
                                     <th class="text-secondary opacity-7"><button class="btn btn-primary" routerLink="/admin/products/add">+ Thêm
                                             mới sản
                                             phẩm</button></th>
@@ -51,6 +53,9 @@
                                     </td>
                                     <td class="align-middle text-center">
                                         <span class="">null</span>
+                                    </td>
+                                    <td>
+                                        <p class="align-middle text-center mb-0">{{product.createdAt}} </p>
                                     </td>
                                     <td class="align-middle">
                                         <button class="btn btn-danger" (click)="onHandleRemove(product._id!)">
