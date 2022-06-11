@@ -27,14 +27,17 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     this.categoryId = this.activateRoute.snapshot.params['id'];
     if (this.categoryId !== '0' && this.categoryId !== undefined) {
-      console.log(this.getProductListByCate())
-      this.getProductListByCate()
+      console.log(this.getProductListByCate(this.categoryId))
+      this.getProductListByCate(this.categoryId)
     } else {
       this.getProductList()
     }
 
 
   }
+
+
+
   getProductList() {
 
     this.productService.getProductList().subscribe(data => {
@@ -43,14 +46,11 @@ export class ProductListComponent implements OnInit {
 
   }
 
-  getProductListByCate() {
-    this.categoryId = this.activateRoute.snapshot.params['id'];
-    this.productService.getListProductByCate(this.categoryId).subscribe((data) => {
+  getProductListByCate(id: string) {
+    this.productService.getListProductByCate(id).subscribe((data) => {
       this.products = data;
     })
-
   }
-
 
 
 }

@@ -28,8 +28,8 @@ export class ProductService {
   updateProduct(id: string | number, product: IProduct): Observable<IProduct> {
     return this.http.put<IProduct>(`${environment.products}/${id}`, product);
   }
-
-  getListProductByCate(id: string): Observable<IProduct> {
-    return this.http.get<IProduct>(`${environment.categories}/${id}`);
+  // ------------------
+  getListProductByCate(id: string) {
+    return this.http.get(`${environment.categories}/${id}`);
   }
 }
