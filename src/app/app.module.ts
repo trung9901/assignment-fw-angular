@@ -30,6 +30,10 @@ import { AdminProductFormComponent } from './pages/admin/admin-product/admin-pro
 import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
 import { ShowValidateComponent } from './components/show-validate/show-validate.component';
 import { NgToastModule } from 'ng-angular-popup';
+import { AdminUserFormComponent } from './pages/admin/admin-user/admin-user-form/admin-user-form.component';
+import { AdminUserListComponent } from './pages/admin/admin-user/admin-user-list/admin-user-list.component';
+import { AdminCategoryListComponent } from './pages/admin/admin-category/admin-category-list/admin-category-list.component';
+import { AdminCategoryFormComponent } from './pages/admin/admin-category/admin-category-form/admin-category-form.component';
 
 
 @NgModule({
@@ -51,6 +55,10 @@ import { NgToastModule } from 'ng-angular-popup';
     AdminProductListComponent,
     AdminProductFormComponent,
     ShowValidateComponent,
+    AdminUserFormComponent,
+    AdminUserListComponent,
+    AdminCategoryListComponent,
+    AdminCategoryFormComponent,
 
 
 

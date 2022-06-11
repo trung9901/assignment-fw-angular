@@ -1,0 +1,39 @@
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>Thêm mới danh mục</h6>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="container">
+                        <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+                            <div class="form-group">
+                                <label for="example-text-input" class="form-control-label">Tên </label>
+                                <input class="form-control" type="text" formControlName="name">
+                                <app-show-validate [field]="categoryForm.get('name')" key="Tên danh mục">
+                                </app-show-validate>
+
+                            </div>
+
+
+                            <!-- <div class="form-group">
+                                <label for="example-password-input" class="form-control-label">Tình trạng</label>
+                                <select class="form-control" formControlName="status">
+                                    <option value="">Kisch </option>
+                                    <option value="true">Còn hàng</option>
+                                </select>
+                            </div> -->
+
+
+                            <button [disabled]="!categoryForm.valid" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

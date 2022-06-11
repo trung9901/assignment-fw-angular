@@ -1,0 +1,68 @@
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>Danh sách danh mục</h6>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        #</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
+                                        Name</th>
+
+                                    <!-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Status</th> -->
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        ID</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Date</th>
+                                    <th class="text-secondary opacity-7"><button class="btn btn-primary" routerLink="/admin/categories/add">+ Thêm
+                                            mới danh mục</button></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let category of categories; let i = index">
+                                    <td>
+                                        <p class=" ">{{i+1}}</p>
+                                    </td>
+                                    <td>
+                                        <p class="font-weight-bold mb-0">{{category.name}}</p>
+                                    </td>
+
+                                    <!-- <td class="align-middle text-center text-sm">
+                                        <span class="badge badge-sm bg-gradient-secondary" *ngIf="!category.status">Hết
+                                            hàng</span>
+                                        <span class="badge badge-sm bg-gradient-success" *ngIf="category.status">Còn
+                                            hàng</span>
+                                    </td> -->
+                                    <td>
+                                        <p class="align-middle text-center mb-0">{{category._id}} </p>
+                                    </td>
+                                    <td>
+                                        <p class="align-middle text-center mb-0">{{category.createdAt}} </p>
+                                    </td>
+                                    <td class="align-middle">
+                                        <button class="btn btn-danger" (click)="onHandleRemove(category._id!)">
+                                            Delete
+                                        </button>
+                                        <button class="btn btn-info mx-1" routerLink="/admin/categories/edit/{{category._id!}}">
+                                            Edit
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

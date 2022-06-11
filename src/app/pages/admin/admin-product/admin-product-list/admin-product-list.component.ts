@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgToastService } from 'ng-angular-popup';
 import { IProduct } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 @Component({
@@ -9,7 +10,10 @@ import { ProductService } from 'src/app/services/product.service';
 export class AdminProductListComponent implements OnInit {
 
   products!: IProduct[]
-  constructor(private productService: ProductService) {
+  constructor(
+    private productService: ProductService,
+    private toast: NgToastService,
+  ) {
 
   }
   ngOnInit(): void {
@@ -28,7 +32,11 @@ export class AdminProductListComponent implements OnInit {
       this.productService.removeProduct(id).subscribe(() => {
         // this.products = this.products.filter(item => item._id !== id);
         this.onGetList();
+
       })
+      this.toast.success({ detail: 'xoa san pham thanh cong' })
+    } else {
+      this.toast.error({ detail: 'xoa san pham that bai' })
     }
 
   }

@@ -65,25 +65,34 @@ export class AdminProductFormComponent implements OnInit {
   }
 
 
-  onValidateNameHasProduct(control: AbstractControl): ValidationErrors | null {
+  // onValidateNameHasProduct(control: AbstractControl): ValidationErrors | null {
 
-    const { value } = control;
+  //   const { value } = control;
 
-    if (!value.includes('product')) {
-      return { hasProductError: true };
-    }
+  //   if (!value.includes('product')) {
+  //     return { hasProductError: true };
+  //   }
 
-    return null;
-  }
+  //   return null;
+  // }
 
   onSubmit() {
 
     const submitData = this.productForm.value;
 
+    if (this.productId !== '0' && this.productId !== undefined) {
+      return this.productService.updateProduct(this.productId, submitData).subscribe(data => {
+        this.router.navigateByUrl('/admin/products');
+        this.toast.success({ detail: 'update san thanh cong' })
+      });
+    }
+
     return this.productService.addProduct(submitData).subscribe((data) => {
       this.toast.success({ detail: 'them san pham thanh cong' })
       this.router.navigateByUrl('/admin/products');
     })
+
+
 
   }
 }

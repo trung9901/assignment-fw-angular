@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 
 
 @Component({
@@ -8,12 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLayoutsComponent implements OnInit {
 
-  constructor() {
+  constructor(
+    private router: Router
+  ) {
 
   }
 
   ngOnInit(): void {
   }
-
+  onLogout() {
+    localStorage.removeItem('loggedInUser')
+    this.router.navigateByUrl('/');
+  }
 
 }

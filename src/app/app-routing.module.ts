@@ -8,8 +8,12 @@ import { AdminLayoutsComponent } from './layouts/admin-layouts/admin-layouts.com
 import { ClientLayoutsComponent } from './layouts/client-layouts/client-layouts.component';
 
 import { AboutComponent } from './pages/about/about.component';
+import { AdminCategoryFormComponent } from './pages/admin/admin-category/admin-category-form/admin-category-form.component';
+import { AdminCategoryListComponent } from './pages/admin/admin-category/admin-category-list/admin-category-list.component';
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
+import { AdminUserFormComponent } from './pages/admin/admin-user/admin-user-form/admin-user-form.component';
+import { AdminUserListComponent } from './pages/admin/admin-user/admin-user-list/admin-user-list.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
@@ -57,18 +61,40 @@ const routes: Routes = [
           },
 
         ]
+      },
+      {
+        path: 'categories',
+        children: [
+          { path: "", redirectTo: 'list', pathMatch: 'full' },
+          {
+            path: 'list', component: AdminCategoryListComponent,
+          },
+          {
+            path: 'add', component: AdminCategoryFormComponent,
+          },
+          {
+            path: 'edit/:id', component: AdminCategoryFormComponent,
+          },
+        ]
+      },
+      {
+        path: 'users',
+        children: [
+          { path: "", redirectTo: 'list', pathMatch: 'full' },
+          {
+            path: 'list', component: AdminUserListComponent,
+          },
+          // {
+          //   path: 'add', component: AdminCategoryFormComponent,
+          // },
+          {
+            path: 'edit/:id', component: AdminUserFormComponent,
+          },
+        ]
       }
     ]
   },
-  // {
-  //   path: 'auth',
-  //   children: [
-  //     {
-  //       path: 'login',
-  //       component: 
-  //     }
-  //   ]
-  // }
+
 ];
 
 @NgModule({
