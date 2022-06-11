@@ -34,6 +34,7 @@ import { AdminUserFormComponent } from './pages/admin/admin-user/admin-user-form
 import { AdminUserListComponent } from './pages/admin/admin-user/admin-user-list/admin-user-list.component';
 import { AdminCategoryListComponent } from './pages/admin/admin-category/admin-category-list/admin-category-list.component';
 import { AdminCategoryFormComponent } from './pages/admin/admin-category/admin-category-form/admin-category-form.component';
+import { ProByCateComponent } from './components/client/pro-by-cate/pro-by-cate.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { AdminCategoryFormComponent } from './pages/admin/admin-category/admin-c
     AdminUserListComponent,
     AdminCategoryListComponent,
     AdminCategoryFormComponent,
+    ProByCateComponent,
 
 
 

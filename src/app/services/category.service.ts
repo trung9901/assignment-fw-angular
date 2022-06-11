@@ -28,4 +28,6 @@ export class CategoryService {
   updateCategory(id: string | number, data: ICategory): Observable<ICategory> {
     return this.http.put<ICategory>(`${environment.categories}/${id}`, data);
   }
+
+
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from 'src/app/models/product';
+import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -9,14 +10,16 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  products!: IProduct[]
+  products: any
   categoryId: string;
   constructor(
+    private categoryService: CategoryService,
     private productService: ProductService,
-    private router: Router,
     private activateRoute: ActivatedRoute,
+    private router: Router,
+
   ) {
-    this.categoryId = '0';
+    this.categoryId = "";
   }
 
 
@@ -34,17 +37,18 @@ export class ProductListComponent implements OnInit {
   }
   getProductList() {
 
-    return this.productService.getProductList().subscribe(data => {
+    this.productService.getProductList().subscribe(data => {
       this.products = data;
     })
 
   }
 
   getProductListByCate() {
-    const id = this.categoryId
-    return this.productService.getListProductByCate(id).subscribe(data => {
+    this.categoryId = this.activateRoute.snapshot.params['id'];
+    this.productService.getListProductByCate(this.categoryId).subscribe((data) => {
       this.products = data;
     })
+
   }
 
 

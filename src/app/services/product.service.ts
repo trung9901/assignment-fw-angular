@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { IProduct } from '../models/product';
 
 import { environment } from '../../environments/environment';
+import { ICategory } from '../models/category';
 @Injectable({
   providedIn: 'root'
 })
@@ -28,7 +29,7 @@ export class ProductService {
     return this.http.put<IProduct>(`${environment.products}/${id}`, product);
   }
 
-  getListProductByCate(id: string): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>(`${environment.products}/${id}`);
+  getListProductByCate(id: string): Observable<IProduct> {
+    return this.http.get<IProduct>(`${environment.categories}/${id}`);
   }
 }
