@@ -11,12 +11,10 @@ import { LocalstorageService } from 'src/app/services/localstorage.service';
 export class HeaderComponent implements OnInit {
 
   cartItems: ProductCart[];;
-  loggedInUser;
+
 
   constructor(private lsService: LocalstorageService) {
     this.cartItems = [];
-    this.loggedInUser = this.lsService.getUser()
-
   }
 
   ngOnInit(): void {
@@ -30,5 +28,10 @@ export class HeaderComponent implements OnInit {
   onSetCart() {
     this.cartItems = this.lsService.getItem()
   }
-
+  loggedIn() {
+    return this.lsService.getUser()
+  }
+  onLogout() {
+    localStorage.removeItem('loggedInUser')
+  }
 }

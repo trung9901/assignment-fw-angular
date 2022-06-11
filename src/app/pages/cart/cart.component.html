@@ -15,15 +15,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let cart of cartItems">
+                        <tr *ngFor="let cart of onGetCart()">
                             <td><img src="{{cart.image}}" width="50" height="50" /> </td>
                             <td>{{cart.name}}</td>
 
-                            <td class=" "><input class="p-2" type="number" value="{{cart.value}}" />
+                            <td class="">
+                                <div class="z">
+                                    <button class=" btn btn-dark" (click)="decreaseItemInCart(cart._id)">-</button>
+                                    <input class="p-2 " type="number" value="{{cart.value}}" width="50" />
+                                    <button class="btn btn-dark" (click)="increaseItemInCart(cart._id)">+</button>
+                                </div>
+
                             </td>
-                            <td><small class="btn btn-outline-primary" (click)="onUpdateToCart()">↻</small></td>
+                            <td></td>
                             <td class="text-right">{{cart.price}} ₫</td>
-                            <td class="text-right"><button class="btn  btn-danger">Xoá
+                            <td class="text-right"><button class="btn  btn-danger" (click)="removeItemInCart(cart._id)">Xoá
                                 </button> </td>
                         </tr>
 

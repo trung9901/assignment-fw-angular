@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class SigninComponent implements OnInit {
   signinForm: FormGroup;
   constructor(
+    private toast: NgToastService,
     private authService: AuthService,
     private router: Router
   ) {
@@ -26,11 +28,17 @@ export class SigninComponent implements OnInit {
     // 1. Nhận dữ liệu từ form và call API login
     this.authService.signIn(this.signinForm.value).subscribe(data => {
       // 2. Lưu thông tin user vào localStorage: setItem(tên key lưu vào ls, dữ liệu string)
+      this.toast.success({ detail: 'dang nhap thanh cong' })
       localStorage.setItem('loggedInUser', JSON.stringify(data));
       // localStorage.getItem('loggedInUser');
       //
+
       this.router.navigateByUrl('/');
-    });
+    }, () => {
+      this.toast.error({ detail: 'Email hoac mat khau khong dung' })
+    }
+
+    );
   }
 
 }

@@ -29,7 +29,7 @@ import { CartComponent } from './pages/cart/cart.component';
 import { AdminProductFormComponent } from './pages/admin/admin-product/admin-product-form/admin-product-form.component';
 import { AdminProductListComponent } from './pages/admin/admin-product/admin-product-list/admin-product-list.component';
 import { ShowValidateComponent } from './components/show-validate/show-validate.component';
-
+import { NgToastModule } from 'ng-angular-popup';
 
 
 @NgModule({
@@ -65,7 +65,7 @@ import { ShowValidateComponent } from './components/show-validate/show-validate.
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     ReactiveFormsModule,
-
+    NgToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

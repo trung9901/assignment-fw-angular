@@ -32,7 +32,7 @@
                 <div class="col-xl-4 col-lg-5 col-md-5 col-sm-12 col-12 header-right">
                     <div class="header-page-link">
                         <ul class="group-account">
-                            <li class="hotline" *ngIf="loggedInUser.user && loggedInUser.user.role === 1">
+                            <li class="hotline" *ngIf="loggedIn().user && loggedIn().user.role === 1">
 
                                 <a routerLink="/admin"><span>Trang quản trị</span></a>
                             </li>
@@ -113,14 +113,14 @@
                                     </a>
                                 </div>
                                 <div class="drop-account">
-                                    <div class="" *ngIf="!loggedInUser.user">
+                                    <div class="" *ngIf="!loggedIn().user">
                                         <a routerLink="/signin">Đăng nhập</a>
                                         <a routerLink="/signup">Đăng ký</a>
                                     </div>
-                                    <div class="" *ngIf="loggedInUser.user">
-                                        <a class="">{{loggedInUser.user.name}}</a>
-                                        <button class="btn btn-dark" onclick="localStorage.removeItem('loggedInUser')">Logout</button>
-                                        <!-- <a class="fw-bold ">Đăng xuất</a> -->
+                                    <div class="" *ngIf="loggedIn().user">
+                                        <a class="">{{loggedIn()?.user.name}}</a>
+                                        <button class="btn btn-dark" (click)=" onLogout()">Logout</button>
+
                                     </div>
                                 </div>
                             </li>
