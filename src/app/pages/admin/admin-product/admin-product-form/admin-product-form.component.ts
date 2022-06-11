@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import { ICategory } from 'src/app/models/category';
+import { CategoryService } from 'src/app/services/category.service';
+
+
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -12,11 +16,14 @@ import { ProductService } from 'src/app/services/product.service';
 export class AdminProductFormComponent implements OnInit {
   productForm: FormGroup;
   productId: string;
+  categories!: ICategory[]
   constructor(
     private productService: ProductService, // cung cấp createProduct
     private router: Router, // cung cấp navigate điều hướng
     private activateRoute: ActivatedRoute, // lấy ra các tham số trong url
     private toast: NgToastService,
+    private categoryService: CategoryService
+
   ) {
     this.productForm = new FormGroup({
       // name: new FormControl('', Validators.required),
@@ -38,9 +45,9 @@ export class AdminProductFormComponent implements OnInit {
       description: new FormControl('', [
 
       ]),
-      // category: new FormControl('', [
-      //   Validators.required
-      // ]),
+      category: new FormControl('', [
+        Validators.required
+      ]),
       status: new FormControl(true),
     });
 
@@ -48,6 +55,7 @@ export class AdminProductFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.onGetCategory()
     this.productId = this.activateRoute.snapshot.params['id'];
     if (this.productId) {
       this.productService.getProducts(this.productId).subscribe(data => {
@@ -62,6 +70,7 @@ export class AdminProductFormComponent implements OnInit {
       });
 
     }
+
   }
 
 
@@ -91,8 +100,15 @@ export class AdminProductFormComponent implements OnInit {
       this.toast.success({ detail: 'them san pham thanh cong' })
       this.router.navigateByUrl('/admin/products');
     })
+  }
 
 
+  onGetCategory() {
+    this.categoryService.getCategoryList().subscribe((data) => {
+      this.categories = data
+    })
 
   }
+
+
 }

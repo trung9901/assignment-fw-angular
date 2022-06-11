@@ -26,18 +26,21 @@ const routes: Routes = [
   {
     path: '', component: ClientLayoutsComponent,
     children: [
-      { path: '', component: HomeComponent },
+      {
+        path: '', component: HomeComponent,
+      },
       { path: 'about', component: AboutComponent },
       {
         path: 'products', component: ProductComponent,
         // children: [
-        //   { path: ':id', component: ProductDetailComponent, }
+        //   { path: ':id', component: ProductComponent, }
         // ]
       },
       { path: 'detail/:id', component: ProductDetailComponent },
       { path: 'signin', component: SigninComponent },
       { path: 'signup', component: SignupComponent },
-      { path: 'cart', component: CartComponent }
+      { path: 'cart', component: CartComponent },
+      { path: 'home/:id', component: HomeComponent }
     ]
   },
 

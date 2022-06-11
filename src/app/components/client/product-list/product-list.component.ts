@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -9,22 +10,43 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductListComponent implements OnInit {
   products!: IProduct[]
-  constructor(private productService: ProductService) { }
+  categoryId: string;
+  constructor(
+    private productService: ProductService,
+    private router: Router,
+    private activateRoute: ActivatedRoute,
+  ) {
+    this.categoryId = '0';
+  }
 
 
 
   ngOnInit(): void {
-    this.getProductList()
+    this.categoryId = this.activateRoute.snapshot.params['id'];
+    if (this.categoryId !== '0' && this.categoryId !== undefined) {
+      console.log(this.getProductListByCate())
+      this.getProductListByCate()
+    } else {
+      this.getProductList()
+    }
+
+
   }
   getProductList() {
-    this.productService.getProductList().subscribe(data => {
-      this.products = data;
 
+    return this.productService.getProductList().subscribe(data => {
+      this.products = data;
+    })
+
+  }
+
+  getProductListByCate() {
+    const id = this.categoryId
+    return this.productService.getListProductByCate(id).subscribe(data => {
+      this.products = data;
     })
   }
-  onHandleRemove(id: string) {
-    this.productService.removeProduct(id).subscribe(() => {
-      this.products = this.products.filter(item => item._id !== id);
-    })
-  }
+
+
+
 }

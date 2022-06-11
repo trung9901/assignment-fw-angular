@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgToastService } from 'ng-angular-popup';
+import { ICategory } from 'src/app/models/category';
 import { IProduct } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
+import { CategoryService } from 'src/app/services/category.service';
 @Component({
   selector: 'app-admin-product-list',
   templateUrl: './admin-product-list.component.html',
@@ -13,12 +15,15 @@ export class AdminProductListComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private toast: NgToastService,
+    private categoryService: CategoryService
   ) {
 
   }
   ngOnInit(): void {
     this.onGetList()
   }
+
+
   onGetList() {
     this.productService.getProductList().subscribe((data) => {
       this.products = data;
@@ -40,4 +45,15 @@ export class AdminProductListComponent implements OnInit {
     }
 
   }
+
+  onGetCategoryById() {
+    // this.productService.getProductList().subscribe((data) => {
+    //   return data;
+    // });
+    // const id = this.data._id
+    // this.categoryService.getCategories(id).subscribe((data) => {
+
+    // })
+  }
+
 }
