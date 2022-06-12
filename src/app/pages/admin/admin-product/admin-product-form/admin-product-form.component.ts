@@ -43,7 +43,7 @@ export class AdminProductFormComponent implements OnInit {
         Validators.required,
       ]),
       description: new FormControl('', [
-
+        Validators.maxLength(100)
       ]),
       category: new FormControl('', [
         Validators.required
@@ -65,7 +65,8 @@ export class AdminProductFormComponent implements OnInit {
           price: data.price,
           quantity: data.quantity,
           image: data.image,
-          description: data.description
+          description: data.description,
+          category: data.category
         });
       });
 

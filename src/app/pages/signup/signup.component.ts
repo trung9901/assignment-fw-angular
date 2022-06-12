@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 @Component({
@@ -14,12 +15,17 @@ export class SignupComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private authService: AuthService,
-    private toastr: ToastrService
+    private toastr: NgToastService
   ) {
     this.signupForm = new FormGroup({
-      name: new FormControl(''),
-      email: new FormControl('', Validators.email),
-      password: new FormControl('')
+      name: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('',
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(16)
+        ])
     })
   }
 
@@ -28,7 +34,7 @@ export class SignupComponent implements OnInit {
   onSubmit() {
     this.authService.signUp(this.signupForm.value).subscribe(data => {
       this.router.navigateByUrl('/signin')
-      this.toastr.success('đăng ký thành công chuyển tới trang đăng nhập')
+      this.toastr.success({ detail: 'đăng ký thành công chuyển tới trang đăng nhập' })
     })
   }
 }

@@ -13,7 +13,9 @@
 <span *ngIf="(field.dirty || field.touched) && field.errors?.['maxlength']" class="text-danger">
     {{key}} tối đa {{field.errors?.['maxlength'].requiredLength}} ký tự.
 </span>
-
+<span *ngIf="(field.dirty || field.touched) && field.errors?.['email']" class="text-danger">
+    {{key}} email không đúng định dạng.
+</span>
 <!-- Custom validate -->
 <!-- <span *ngIf="(field.dirty || field.touched) && field.errors?.['hasProductError']" class="text-danger">
     {{key}} phải chứa từ 'product'.

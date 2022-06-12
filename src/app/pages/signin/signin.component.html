@@ -25,17 +25,19 @@
                                     <fieldset class="form-group margin-bottom-10">
                                         <label>Email<span class="required">*</span></label>
                                         <input autocomplete="off" placeholder="Nhập Địa chỉ Email" type="email" class="form-control form-control-lg" formControlName="email">
+                                        <app-show-validate [field]="signinForm.get('email')"></app-show-validate>
                                     </fieldset>
                                     <fieldset class="form-group margin-bottom-0">
                                         <label>Mật khẩu<span class="required">*</span></label>
                                         <input autocomplete="off" placeholder="Nhập Mật khẩu" type="password" class="form-control form-control-lg" formControlName="password">
+                                        <app-show-validate [field]="signinForm.get('password')"></app-show-validate>
                                     </fieldset>
                                     <div class="clearfix"></div>
                                     <p class="text-right recover">
                                         <a href="#recover" class="btn-link-style" onclick="showRecoverPasswordForm();" title="Quên mật khẩu?">Quên mật khẩu?</a>
                                     </p>
                                     <div class="pull-xs-left text-center" style="margin-top: 15px;">
-                                        <button class="btn btn-style btn-blues" type="submit" value="Đăng nhập">Đăng
+                                        <button class="btn btn-style btn-blues" type="submit" value="Đăng nhập" [disabled]="!signinForm.valid">Đăng
                                             nhập</button>
                                     </div>
 
