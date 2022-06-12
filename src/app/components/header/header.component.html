@@ -178,7 +178,7 @@
 
 
                             <li class="nav-item  " *ngFor="let category of categories">
-                                <a class="a-img caret-down" href="/vpp-hoc-sinh" title="VPP Học Sinh">
+                                <a class="a-img caret-down" routerLink="/categories/{{category._id}}" title="VPP Học Sinh">
                                     {{ category.name}}
                                 </a>
                                 <!-- <i class="fa fa-caret-down"></i>
