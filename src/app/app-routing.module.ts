@@ -21,6 +21,8 @@ import { ProductComponent } from './pages/product/product.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { SignupComponent } from './pages/signup/signup.component';
 
+import { PageComponent } from './pages/new/page/page.component';
+import { DetailComponent } from './pages/new/detail/detail.component';
 
 const routes: Routes = [
   {
@@ -40,7 +42,14 @@ const routes: Routes = [
       { path: 'signin', component: SigninComponent },
       { path: 'signup', component: SignupComponent },
       { path: 'cart', component: CartComponent },
-      { path: 'categories/:id', component: HomeComponent }
+      { path: 'categories/:id', component: HomeComponent },
+      {
+        path: 'news', component: PageComponent,
+        children: [
+          { path: 'detail', component: DetailComponent }
+        ]
+
+      }
     ]
   },
 

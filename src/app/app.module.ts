@@ -35,6 +35,10 @@ import { AdminUserListComponent } from './pages/admin/admin-user/admin-user-list
 import { AdminCategoryListComponent } from './pages/admin/admin-category/admin-category-list/admin-category-list.component';
 import { AdminCategoryFormComponent } from './pages/admin/admin-category/admin-category-form/admin-category-form.component';
 import { ProByCateComponent } from './components/client/pro-by-cate/pro-by-cate.component';
+import { PageComponent } from './pages/new/page/page.component';
+import { DetailComponent } from './pages/new/detail/detail.component';
+import { AdminNewListComponent } from './pages/admin/admin-new/admin-new-list/admin-new-list.component';
+import { AdminNewFormComponent } from './pages/admin/admin-new/admin-new-form/admin-new-form.component';
 
 
 @NgModule({
@@ -61,6 +65,10 @@ import { ProByCateComponent } from './components/client/pro-by-cate/pro-by-cate.
     AdminCategoryListComponent,
     AdminCategoryFormComponent,
     ProByCateComponent,
+    PageComponent,
+    DetailComponent,
+    AdminNewListComponent,
+    AdminNewFormComponent,
 
 
 
