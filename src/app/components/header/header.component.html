@@ -177,11 +177,11 @@
                         <ul class="item_big">
 
 
-                            <li class="nav-item ">
+                            <li class="nav-item  " *ngFor="let category of categories">
                                 <a class="a-img caret-down" href="/vpp-hoc-sinh" title="VPP Học Sinh">
-                                    VPP Học Sinh
+                                    {{ category.name}}
                                 </a>
-                                <i class="fa fa-caret-down"></i>
+                                <!-- <i class="fa fa-caret-down"></i>
                                 <ul class="item_small">
 
                                     <li>
@@ -226,10 +226,10 @@
 
                                     </li>
 
-                                </ul>
+                                </ul> -->
                             </li>
 
-
+                            <!-- 
 
                             <li class="nav-item ">
                                 <a class="a-img caret-down" href="/vpp-van-phong" title="VPP Văn phòng">
@@ -443,7 +443,7 @@
                                     </li>
 
                                 </ul>
-                            </li>
+                            </li> -->
 
 
                         </ul>
