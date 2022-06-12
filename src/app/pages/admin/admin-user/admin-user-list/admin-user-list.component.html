@@ -14,11 +14,14 @@
                                         #</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
                                         Name</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
+                                        Email</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Role</th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Status</th>
-
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Date</th>
 
                                     <!-- <th class="text-secondary opacity-7"><button class="btn btn-primary" routerLink="/admin/categories/add">+ Thêm
                                             mới danh mục</button></th> -->
@@ -33,24 +36,31 @@
                                         <p class="font-weight-bold mb-0">{{user.name}}</p>
                                     </td>
                                     <td>
+                                        <p class="font-weight-bold mb-0">{{user.email}}</p>
+                                    </td>
+                                    <td>
                                         <p class="align-middle text-center mb-0" *ngIf="user.role === 0">Member</p>
                                         <p class="align-middle text-center mb-0" *ngIf="user.role === 1">Admin</p>
                                     </td>
                                     <td class="align-middle text-center text-sm">
-                                        <span class="badge badge-sm bg-gradient-secondary" *ngIf="!user.status">Chưa
+                                        <span class="badge badge-sm bg-gradient-secondary" *ngIf="user.status === 0">Chưa
                                             kích hoạt</span>
-                                        <span class="badge badge-sm bg-gradient-success" *ngIf="user.status">Đã kích
+                                        <span class="badge badge-sm bg-gradient-success" *ngIf="user.status === 1">Đã
+                                            kích
                                             hoạt</span>
                                     </td>
-
+                                    <td class="align-middle text-center ">
+                                        <p class=" mb-0">{{user.createdAt}}</p>
+                                    </td>
 
                                     <td class="align-middle">
-                                        <button class="btn btn-success">
-                                            Detail
+                                        <button class="btn btn-danger" (click)="onHandleRemove(user._id)">
+                                            Delete
                                         </button>
                                         <button class="btn btn-info mx-1" routerLink="/admin/users/edit/{{user._id!}}">
                                             Edit
                                         </button>
+
                                     </td>
                                 </tr>
 

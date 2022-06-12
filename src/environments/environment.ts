@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   products: `${apiUrl}/products`,
   users: `${apiUrl}/users`,
+  news: `${apiUrl}/news`,
   categories: `${apiUrl}/categories`,
   signin: `${apiUrl}/signin`,
   signup: `${apiUrl}/signup`,

@@ -23,6 +23,8 @@ import { SignupComponent } from './pages/signup/signup.component';
 
 import { PageComponent } from './pages/new/page/page.component';
 import { DetailComponent } from './pages/new/detail/detail.component';
+import { AdminNewListComponent } from './pages/admin/admin-new/admin-new-list/admin-new-list.component';
+import { AdminNewFormComponent } from './pages/admin/admin-new/admin-new-form/admin-new-form.component';
 
 const routes: Routes = [
   {
@@ -101,6 +103,21 @@ const routes: Routes = [
           // },
           {
             path: 'edit/:id', component: AdminUserFormComponent,
+          },
+        ]
+      },
+      {
+        path: 'news',
+        children: [
+          { path: "", redirectTo: 'list', pathMatch: 'full' },
+          {
+            path: 'list', component: AdminNewListComponent,
+          },
+          {
+            path: 'add', component: AdminNewFormComponent,
+          },
+          {
+            path: 'edit/:id', component: AdminNewFormComponent,
           },
         ]
       }
